@@ -1,6 +1,7 @@
 package com.platzi.market.persistence.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "compras_productos")
@@ -13,6 +14,7 @@ public class ComprasProducto {
 
     private Double total;
 
+    @Column(name="estado")
     private Boolean estado;
 
     @ManyToOne

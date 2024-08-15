@@ -2,6 +2,7 @@ package com.platzi.market.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -10,7 +11,7 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
-    private Integer idCategoria;
+    private BigInteger idCategoria;
 
     private String descripcion;
 
@@ -19,7 +20,7 @@ public class Categoria {
     @OneToMany(mappedBy = "categoria")
     private List<Producto> productos;
 
-    public Integer getIdCategoria() {
+    public BigInteger getIdCategoria() {
         return idCategoria;
     }
 

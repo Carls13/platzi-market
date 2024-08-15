@@ -2,6 +2,8 @@ package com.platzi.market.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigInteger;
+
 @Entity
 @Table(name = "productos")
 public class Producto {
@@ -9,12 +11,12 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto")
-    private Integer idProducto;
+    private BigInteger idProducto;
 
     private String nombre;
 
     @Column(name = "id_categoria")
-    private Integer idCategoria;
+    private BigInteger idCategoria;
 
     @Column(name = "codigo_barras")
     private String codigoBarras;
@@ -23,15 +25,15 @@ public class Producto {
     private Double precioVenta;
 
     @Column(name = "stock")
-    private Integer cantidadStock;
+    private BigInteger cantidadStock;
 
-    private Integer estado;
+    private Boolean estado;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     private Categoria categoria;
 
-    public Integer getIdProducto() {
+    public BigInteger getIdProducto() {
         return idProducto;
     }
 
@@ -43,11 +45,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Integer getIdCategoria() {
+    public BigInteger getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
+    public void setIdCategoria(BigInteger idCategoria) {
         this.idCategoria = idCategoria;
     }
 
@@ -67,19 +69,19 @@ public class Producto {
         this.precioVenta = precioVenta;
     }
 
-    public Integer getCantidadStock() {
+    public BigInteger getCantidadStock() {
         return cantidadStock;
     }
 
-    public void setCantidadStock(Integer cantidadStock) {
+    public void setCantidadStock(BigInteger cantidadStock) {
         this.cantidadStock = cantidadStock;
     }
 
-    public Integer getEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(Integer estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 

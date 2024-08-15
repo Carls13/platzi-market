@@ -2,6 +2,7 @@ package com.platzi.market.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compra")
-    private Integer idCompra;
+    private BigInteger idCompra;
 
     @Column(name = "id_cliente")
     private String idCliente;
@@ -30,14 +31,14 @@ public class Compra {
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "compra")
     private List<ComprasProducto> productos;
 
-    public Integer getIdCompra() {
+    public BigInteger getIdCompra() {
         return idCompra;
     }
 
-    public void setIdCompra(Integer idCompra) {
+    public void setIdCompra(BigInteger idCompra) {
         this.idCompra = idCompra;
     }
 
