@@ -24,7 +24,7 @@ public class Producto {
     @Column(name = "precio_venta")
     private Double precioVenta;
 
-    @Column(name = "stock")
+    @Column(name = "cantidad_stock")
     private BigInteger cantidadStock;
 
     private Boolean estado;
@@ -35,6 +35,10 @@ public class Producto {
 
     public BigInteger getIdProducto() {
         return idProducto;
+    }
+
+    public void setIdProducto(BigInteger idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombre() {
