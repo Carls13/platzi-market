@@ -1,35 +1,42 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.3.2'
-	id 'io.spring.dependency-management' version '1.1.6'
+	id 'org.springframework.boot' version '3.1.0'
+	id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'com.platzi'
 version = '1.0'
 
 java {
-	toolchain {
-		implementation = JvmImplementation.J9
+	sourceCompatibility = '17'
+}
+jar {
+	manifest {
+		enabled = false
+		attributes 'Main-Class': 'com.platzi.market.PlatziMarketApplication'
 	}
 }
-
 repositories {
 	mavenCentral()
 }
 
 dependencies {
+	// Spring-boot
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-
-	implementation 'org.postgresql:postgresql:42.7.3'
-	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
-
-	implementation 'org.mapstruct:mapstruct:1.6.0'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.0'
-
+	//Hakari ~
+	implementation 'com.zaxxer:HikariCP:4.0.3'
+	// Lombok
+	implementation 'org.projectlombok:lombok:1.18.22'
+	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok'
+	// MapStruct
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	compileOnly 'org.mapstruct:mapstruct:1.4.1.Final'
+	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
+	// Swagger
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 }
 
