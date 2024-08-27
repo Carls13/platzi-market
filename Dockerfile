@@ -9,6 +9,6 @@ COPY src /home/app/src
 #
 FROM openjdk:11-jre-slim
 RUN java -jar -Dspring.profiles.active=pro build/libs/platzi-market-1.0.jar
-COPY --from=build /build/libs/platzi-market-1.0.jar /usr/local/lib/demo.jar
+COPY --from=build ./build/libs/platzi-market-1.0.jar /usr/local/lib/demo.jar
 EXPOSE 80
 ENTRYPOINT ["java","-jar","/usr/local/lib/demo.jar"]
